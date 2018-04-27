@@ -5,7 +5,7 @@ export default function DoggyHeader () {
      
     return (
         <div className='doggyHeader'>
-            🐕    Doggos for Days     🐕
+            🐕   Doggos for Days     🐕
         </div>
     )
 }

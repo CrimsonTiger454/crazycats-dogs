@@ -7,7 +7,7 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.get('/api/doggos/name', infoController.getNameAndID);
+app.get('/api/doggos/newDog', infoController.getDoggo);
 
 app.delete('/api/doggos/:id', infoController.removeDoggo);
 

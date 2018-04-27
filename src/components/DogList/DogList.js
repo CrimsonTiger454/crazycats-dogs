@@ -19,32 +19,15 @@ export default class DogList extends Component {
     }
 
     deleteDoggo (id) {
-        axios.delete('/api/doggos/:id').then( res => {
+        axios.delete(`/api/doggos/${id}`).then( res => {
             this.setState({allDogInfo: res.data})
         } )
     }
 
     getAllDogInfo () {
-       
-        axios.get('https://dog.ceo/api/breeds/image/random').then(
-            res => {
-               let dogImgData = res.data.message;              
-                axios.get('/api/doggos/name').then(
-                    res => { 
-                        let dogID = res.data.id;
-                    let dogNameData = res.data.name;
-                    let fullDoggo = {
-                        name: dogNameData,
-                        img: dogImgData,
-                        id: dogID
-                        } 
-                    let dogState = this.state.allDogInfo.slice(0);
-                    dogState.push(fullDoggo);
-                    this.setState({allDogInfo: dogState});
-                    }
-                ).catch( (error) => {console.log(error)} );
-            }
-         )
+       axios.get('/api/doggos/newDog').then(
+           res => {this.setState({allDogInfo: res.data})}
+       )
     } 
     
 
@@ -54,13 +37,12 @@ export default class DogList extends Component {
 
 
     render () {
-
         let displayDog = this.state.allDogInfo.map( (el, indx) => {
             return (
                 <div className="doggyDiv" key={el+indx}>
                     <p className="doggyName">{el.name}</p>
                     <img src={el.img} alt=''/>
-                    <button className='del' onClick={() => {this.deleteDoggo(el.id)} }>{el.id}</button>
+                    <button className='del' onClick={() => {this.deleteDoggo(el.id)} }>I dont like this doggo</button>
                 </div>
             )
         } )
