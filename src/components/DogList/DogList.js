@@ -24,20 +24,19 @@ export default class DogList extends Component {
        
         axios.get('https://dog.ceo/api/breeds/image/random').then(
             res => {
-                let dogImgData = res.data.message;              
+               let dogImgData = res.data.message;              
                 axios.get('/api/doggos/name').then(
-                    res => {
-                    let dogID = res.data.id;
+                    res => { 
+                        let dogID = res.data.id;
                     let dogNameData = res.data.name;
                     let fullDoggo = {
                         name: dogNameData,
                         img: dogImgData,
                         id: dogID
-                        }
-                       
-                    let newDogArr = this.state.allDogInfo.slice(0);
-                    newDogArr.push(fullDoggo);
-                    this.setState({allDogInfo: newDogArr})
+                        } 
+                    let dogState = this.state.allDogInfo.slice(0);
+                    dogState.push(fullDoggo);
+                    this.setState({allDogInfo: dogState});
                     console.log(this.state.allDogInfo);
                     }
                 ).catch( (error) => {console.log(error)} );
