@@ -9,4 +9,6 @@ app.use(bodyParser.json());
 
 app.get('/api/doggos/name', infoController.getNameAndID);
 
+app.delete('/api/doggos/:id', infoController.removeDoggo);
+
 app.listen(port, () => console.log(`Peepin on port ${port}....`) );

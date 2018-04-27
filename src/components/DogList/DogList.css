@@ -10,7 +10,7 @@
 
 
 
-button {
+.getDogs {
     grid-column-start: 2;
     align-self: center;
     width: 200px;
@@ -20,7 +20,7 @@ button {
     margin-bottom: 30px;
     font-size: 25px;
     font-family: 'Kalam', cursive;
-   background: #f6bc62;
+   background: #ffd697;
    border-style: none;
    border-radius: 10px;
    

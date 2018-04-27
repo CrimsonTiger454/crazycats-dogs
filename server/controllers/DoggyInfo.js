@@ -1,6 +1,6 @@
 const allDogInfo = [];
-const prefix = ['Sir ', 'Duke ', 'Mr ', 'Buddy ', 'Missy ', 'Sargent ', 'Senior ', 'Seniorita ', 'Commander ', 'King ', 'Queen ', 'Flopsy ', 'Princess ', 'Madam ', 'Archduke '];
-const suffix = ['droopy-jowls', 'fluffy-pants', 'fiddle-sticks', 'big-borf', 'cutsie-poo', 'snuggles', 'silly-snout', 'fluffy-butt', 'beige-booty', 'snarky-paws', 'floppy-ears', 'fun-timez', 'grouchy-snout', 'querly-tail', 'yeezy-pup'];
+const prefix = ['Sir ', 'Duke ', 'Mr ', 'Buddy ', 'Missy ', 'Sargent ', 'Senior ', 'Seniorita ', 'Commander ', 'King ', 'Queen ', 'Flopsy ', 'Princess ', 'Madam ', 'Archduke ', 'Ricky '];
+const suffix = ['droopy-jowls', 'fluffy-pants', 'fiddle-sticks', 'big-borf', 'cutsie-poo', 'snuggles', 'silly-snout', 'fluffy-butt', 'beige-booty', 'snarky-paws', 'floppy-ears', 'fun-timez', 'grouchy-snout', 'querly-tail', 'yeezy-pup', 'boof'];
 let id = 0;
 
 
@@ -16,7 +16,6 @@ module.exports = {
             id
         }
         allDogInfo.push(newDog);
-        console.log(allDogInfo)
         res.send(newDog);
 
     },
@@ -24,6 +23,9 @@ module.exports = {
 
     removeDoggo: (req, res) => {
         const deleteDoggo = req.params.id; 
-
+        dogIndx = allDogInfo.findIndex (dog => dog.id == deleteDoggo);
+        allDogInfo.splice(dogIndx, 1)
+       
+        res.status(200).send(allDogInfo);
     }
 }

@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Kalam');
+.doggyHeader {
+    background: #537895;
+    font-family: 'Kalam', cursive;
+    font-size: 50px;
+    font-weight: bold;
+    color: #242424;
+    letter-spacing: 3px;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    height: 80px;
+    padding-top: 10px;
+    text-align: center;
+}

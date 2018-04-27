@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import './DogList.css';
+import DoggyHeader from '../DoggyHeader/DoggyHeader';
 
 export default class DogList extends Component {
     constructor () {
@@ -9,6 +10,7 @@ export default class DogList extends Component {
             allDogInfo: []
         }
         this.getAllDogInfo = this.getAllDogInfo.bind(this);
+        this.deleteDoggo = this.deleteDoggo.bind(this);
     }
 
 
@@ -16,8 +18,10 @@ export default class DogList extends Component {
 
     }
 
-    deleteDoggo () {
-
+    deleteDoggo (id) {
+        axios.delete('/api/doggos/:id').then( res => {
+            this.setState({allDogInfo: res.data})
+        } )
     }
 
     getAllDogInfo () {
@@ -37,7 +41,6 @@ export default class DogList extends Component {
                     let dogState = this.state.allDogInfo.slice(0);
                     dogState.push(fullDoggo);
                     this.setState({allDogInfo: dogState});
-                    console.log(this.state.allDogInfo);
                     }
                 ).catch( (error) => {console.log(error)} );
             }
@@ -57,13 +60,15 @@ export default class DogList extends Component {
                 <div className="doggyDiv" key={el+indx}>
                     <p className="doggyName">{el.name}</p>
                     <img src={el.img} alt=''/>
+                    <button className='del' onClick={() => {this.deleteDoggo(el.id)} }>{el.id}</button>
                 </div>
             )
         } )
 
         return (
             <div className="Main">
-                <button onClick={ this.getAllDogInfo }>Show Doggos!</button>
+            <DoggyHeader />
+                <button className='getDogs' onClick={ this.getAllDogInfo }>Show Doggos!</button>
                 <br />
                 {displayDog}
             </div>
