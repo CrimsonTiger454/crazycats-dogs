@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Kalam');
+
+.commentInput {
+    border-style: none;
+    width: 350px;
+    height: 30px;
+    font-family: 'Kalam', cursive;
+    font-size: 17px;
+    padding-left: 10px;
+    border-radius: 8px;
+}
+
+.comment {
+    font-family: 'Kalam', cursive;
+}
+
+.comments_section {
+    background: #86ABC8;
+    padding-left: 20px;
+    border-radius: 10px;
+    
+}

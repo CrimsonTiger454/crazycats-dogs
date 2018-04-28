@@ -3,7 +3,7 @@
 
 .Main {
     display: grid;
-    grid-template-columns: 25vw 25vw 25vw;
+    grid-template-columns: 28vw 28vw 28vw;
     justify-content: space-around;
     align-items: center;
 }
@@ -23,12 +23,14 @@
    background: #ffd697;
    border-style: none;
    border-radius: 10px;
+   color: #242424;
    
 }
 
 
 .doggoDiv {
   text-align: center;
+  align-items: center;
 }
 
 .doggyName {
@@ -38,10 +40,27 @@
     margin: 0%;
     margin-top: 35px;
     margin-right: 110px;
+    color: #242424;
 }
 
 img {
+    margin-left: 26px;
     align-self: center;
     height: 280px;
     width: 350px;
+}
+
+.del {
+    margin-left: 100px;
+    background: #ffd697;
+    border-style: none;
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-family: 'Kalam', cursive;
+    font-size: 20px;
+    color: #242424;
 }

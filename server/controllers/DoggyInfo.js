@@ -1,10 +1,11 @@
 const axios = require('axios');
 
 const allDogInfo = [];
+const comments = [];
 const prefix = ['Sir ', 'Duke ', 'Mr ', 'Buddy ', 'Missy ', 'Sargent ', 'Senior ', 'Seniorita ', 'Commander ', 'King ', 'Queen ', 'Flopsy ', 'Princess ', 'Madam ', 'Archduke ', 'Ricky '];
 const suffix = ['droopy-jowls', 'fluffy-pants', 'fiddle-sticks', 'big-borf', 'cutsie-poo', 'snuggles', 'silly-snout', 'fluffy-butt', 'beige-booty', 'snarky-paws', 'floppy-ears', 'fun-timez', 'grouchy-snout', 'querly-tail', 'yeezy-pup', 'boof'];
-let id = 0;
-
+let dogID = 0;
+let commentID = 0;
 
 module.exports = {
     getDoggo: (req, res) => {
@@ -13,7 +14,7 @@ module.exports = {
         
         const randoSuffix = suffix[Math.floor(Math.random() * suffix.length)];
         var dogName = randoPrefix + randoSuffix;
-        id++;
+        dogID++;
 
         axios.get('https://dog.ceo/api/breeds/image/random').then(
             response => { let dogImgData = response.data.message;
@@ -22,7 +23,7 @@ module.exports = {
                 let fullDogo = {
                     name: dogName,
                     img: dogImgData,
-                    id
+                    dogID
                 }
 
                 allDogInfo.push(fullDogo);
@@ -40,5 +41,18 @@ module.exports = {
         allDogInfo.splice(dogIndx, 1)
        
         res.status(200).send(allDogInfo);
+    },
+
+    createComment: (req, res) => {
+       const text = req.body;
+       comments.push(commentID, text);
+       commentID++;
+       console.log(comments);
+       res.send(comments);
+    }, 
+
+    readComments: (req, res) => {
+        res.status(200).send( comments );
     }
+
 }

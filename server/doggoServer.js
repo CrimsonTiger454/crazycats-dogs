@@ -11,4 +11,8 @@ app.get('/api/doggos/newDog', infoController.getDoggo);
 
 app.delete('/api/doggos/:id', infoController.removeDoggo);
 
+app.post('/api/newcomment', infoController.createComment);
+
+app.get('/api/allComments', infoController.readComments);
+
 app.listen(port, () => console.log(`Peepin on port ${port}....`) );

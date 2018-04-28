@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import './DogList.css';
 import DoggyHeader from '../DoggyHeader/DoggyHeader';
+import Comments from '../Comments/Comments';
 
 export default class DogList extends Component {
     constructor () {
@@ -42,7 +43,7 @@ export default class DogList extends Component {
                 <div className="doggyDiv" key={el+indx}>
                     <p className="doggyName">{el.name}</p>
                     <img src={el.img} alt=''/>
-                    <button className='del' onClick={() => {this.deleteDoggo(el.id)} }>I dont like this doggo</button>
+                    <button className='del' onClick={() => {this.deleteDoggo(el.dogID)} }>I dont like this doggo</button>
                 </div>
             )
         } )
@@ -53,6 +54,8 @@ export default class DogList extends Component {
                 <button className='getDogs' onClick={ this.getAllDogInfo }>Show Doggos!</button>
                 <br />
                 {displayDog}
+                <br />
+                <Comments />
             </div>
         )
     }
