@@ -4,6 +4,7 @@
 .Main {
     display: grid;
     grid-template-columns: 28vw 28vw 28vw;
+    grid-template-rows: 30vh, 30vh, 30vh, auto;
     justify-content: space-around;
     align-items: center;
 }
@@ -54,7 +55,7 @@ img {
     margin-left: 100px;
     background: #ffd697;
     border-style: none;
-    border-radius: 5px;
+    border-radius: 8px;
     text-align: center;
     padding-top: 7px;
     padding-bottom: 7px;
@@ -63,4 +64,11 @@ img {
     font-family: 'Kalam', cursive;
     font-size: 20px;
     color: #242424;
+}
+
+.dogComments {
+    margin-top: 100px;
+    margin-bottom: 10vh;
+    grid-column-start: 1;
+    grid-column-end: 4;
 }

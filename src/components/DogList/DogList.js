@@ -55,7 +55,9 @@ export default class DogList extends Component {
                 <br />
                 {displayDog}
                 <br />
+            <section className='dogComments'>
                 <Comments />
+                </section>
             </div>
         )
     }

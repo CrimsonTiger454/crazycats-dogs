@@ -18,8 +18,7 @@ module.exports = {
 
         axios.get('https://dog.ceo/api/breeds/image/random').then(
             response => { let dogImgData = response.data.message;
-        //axios.get('/api/doggos/name').then(
-            //res => { 
+
                 let fullDogo = {
                     name: dogName,
                     img: dogImgData,
@@ -29,7 +28,6 @@ module.exports = {
                 allDogInfo.push(fullDogo);
                 console.log(allDogInfo);
                 res.send(allDogInfo);
-           // }).catch( (error) => {console.log(error)} )
         } ).catch( (error) => {console.log(error)} )
 
     },
@@ -47,7 +45,6 @@ module.exports = {
        const text = req.body;
        comments.push(commentID, text);
        commentID++;
-       console.log(comments);
        res.send(comments);
     }, 
 

@@ -26,7 +26,6 @@ class Comments extends Component {
                 this.setState({comments: res.data})
             })
             this.setState({text: ''})
-            console.log('state: ' + this.state);
         } 
     }
     
